@@ -1,4 +1,4 @@
 class Subject < ActiveRecord::Base
 	has_many :articles
-	validates :name, presence: true
+	validates :name, presence: true, uniqueness: { case_sensitive: false}
 end
