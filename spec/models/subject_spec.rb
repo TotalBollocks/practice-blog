@@ -16,8 +16,8 @@ describe Subject do
   end
 
   it "can add an article", focus: true do
-  	subject = FactoryGirl.create :subject
-  	article = FactoryGirl.build :article
+  	subject = Subject.create name: "Fun"
+  	article = Article.new title: "Pokemon"
   	subject.articles << article
   	subject.articles.should include article
   end
