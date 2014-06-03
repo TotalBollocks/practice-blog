@@ -1,4 +1,5 @@
 PracticeBlog::Application.routes.draw do
+  root to: 'subjects#index'
   resources :subjects, only: :show
 
   # The priority is based upon order of creation: first created -> highest priority.

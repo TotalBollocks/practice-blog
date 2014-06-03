@@ -1,0 +1,27 @@
+$blue-bg: #5A6E82;
+$minty-green: #739B79;
+$ivory: #CDD7F5;
+
+body {
+	background: $blue-bg;
+}
+
+h1 {
+	text-align: center;
+	margin: 45px 0;
+}
+
+.sidebar {
+	float: left;
+	width: 30%;
+	margin-right: 50px;
+	height: 500px;
+	background: $minty-green;
+}
+
+.content {
+	
+	width: 90%;
+	height: 500px;
+	background:$ivory;
+}
