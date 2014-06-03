@@ -2,6 +2,10 @@ $blue-bg: #5A6E82;
 $minty-green: #739B79;
 $ivory: #CDD7F5;
 
+ul {
+	list-style: none;
+}
+
 body {
 	background: $blue-bg;
 }
@@ -12,8 +16,8 @@ h1 {
 }
 
 .sidebar {
+	padding: 10px 15px;
 	float: left;
-	width: 30%;
 	margin-right: 50px;
 	height: 500px;
 	background: $minty-green;
