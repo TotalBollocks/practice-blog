@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(version: 20140530142746) do
 
   create_table "sections", force: true do |t|
     t.text     "content"
-    t.integer  "articles_id"
+    t.integer  "article_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
