@@ -1,7 +1,11 @@
 PracticeBlog::Application.routes.draw do
   root to: 'subjects#index'
   resources :subjects, only: :show
-  resources :articles
+  resources :articles, only: :show
+
+  namespace :admin do
+    resources :subjects, except: [:show, :index]
+  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
