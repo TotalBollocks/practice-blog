@@ -3,5 +3,7 @@
 FactoryGirl.define do
   factory :section do
   	content "Fake content. Fake fake content"
+
+  	article
   end
 end

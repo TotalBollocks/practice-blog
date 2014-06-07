@@ -11,4 +11,11 @@ describe Article do
   	article.should_not be_valid
   	article.errors[:subject].should include("can't be blank")
   end
+
+  it "can add a section", focus: true do
+    subject = Subject.create! name: "Test Subject"
+  	article = Article.create! title: "TEST!", subject: subject
+  	section = Section.create! content: "test", article: article
+  	article.sections.should include section
+  end
 end

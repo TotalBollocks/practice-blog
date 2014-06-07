@@ -15,7 +15,7 @@ describe Subject do
   	subject.errors[:name].should include "has already been taken"
   end
 
-  it "can add an article" do
+  it "can add an article", focus: true do
   	subject = Subject.create name: "Fun"
   	article = Article.new title: "Pokemon"
   	subject.articles << article
