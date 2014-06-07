@@ -8,19 +8,26 @@
 </head>
 <body>
 
-<h1>Practice Blogger App</h1>
+<div id="main" class="cf">
 
-<section class="sidebar">
-	<ul>
-		<% @subjects.each do |subject| %>
-		<li>
-			<%= link_to subject.name, subject_path(subject) %>
-		</li>
-		<% end %>
-	</ul>
-</section>
-<section class="content">
-	<%= yield %>
-</section>
+	<div id="header">
+		<h1>Practice Blogger App</h1>
+	</div>
+
+	<section id="sidebar">
+		<ul>
+			<% @subjects.each do |subject| %>
+			<li>
+				<%= link_to subject.name, subject_path(subject) %>
+			</li>
+			<% end %>
+		</ul>
+	</section>
+
+	<section id="content">
+		<%= yield %>
+	</section>
+
+</div> <%# end main %>
 </body>
 </html>
