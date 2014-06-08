@@ -1,4 +1,11 @@
 class Admin::SubjectsController < Admin::BaseController
+	def index
+		# @subjects added w/ filter
+	end
+
+	def show
+		@subject = Subject.find(params[:id])
+	end
 
 	def new
 		@subject = Subject.new
@@ -9,7 +16,7 @@ class Admin::SubjectsController < Admin::BaseController
 
 		if @subject.save
 			flash[:notice] = "You created a subject"
-			redirect_to root_path
+			redirect_to admin_subjects_path
 		else
 			render 'new'
 		end
@@ -24,7 +31,7 @@ class Admin::SubjectsController < Admin::BaseController
 
 		if @subject.update(subject_params)
 			flash[:notice] = "You have updated the subject"
-			redirect_to root_path
+			redirect_to admin_subjects_path
 		else
 			render 'edit'
 		end

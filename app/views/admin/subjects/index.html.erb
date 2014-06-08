@@ -1,0 +1,17 @@
+<table>
+	<tr>
+		<th>Name</th>
+		<th>Actions</th>
+	</tr>
+	<% @subjects.each do |subject| %>
+		<tr>
+			<td><%= subject.name %></td>
+			<td>
+				<%= link_to "Edit", [:edit, :admin, subject] %>
+				<%= link_to "Articles", [:admin, subject] %>
+			</td>
+		</tr>
+	<% end %>
+</table>
+
+<%= link_to "New subject", new_admin_subject_path %>

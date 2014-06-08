@@ -1,0 +1,12 @@
+<table>
+	<tr>
+		<th>Article</th>
+		<th>Action</th>
+	</tr>
+	<% @subject.articles.each do |article| %>
+		<tr>
+			<td><%= article.title %></td>
+			<td><%= link_to "Edit", [:edit, :admin, article] %></td>
+		</tr>
+	<% end %>
+</table>
