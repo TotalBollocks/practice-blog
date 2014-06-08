@@ -5,7 +5,7 @@ PracticeBlog::Application.routes.draw do
 
   namespace :admin do
     resources :subjects
-    resources :articles, except: [:show, :index] do
+    resources :articles, except: [:index] do
       resources :sections, except: [:show, :index]
     end
   end

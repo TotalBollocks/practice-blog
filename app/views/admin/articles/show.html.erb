@@ -1,0 +1,13 @@
+<table>
+	<tr>
+		<th>Section</th>
+		<th>Actions</th>
+	</tr>
+
+	<% @article.sections.each do |section| %>
+		<tr>
+			<td><%= section.content %></td>
+			<td><%= link_to "Edit", [:edit, :admin, @article, section] %></td>
+		</tr>
+	<% end %>
+</table>
