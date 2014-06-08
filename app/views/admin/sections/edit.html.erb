@@ -1,0 +1,5 @@
+<%= render partial: 'shared/errors', locals: {object: @section} %>
+
+<%= form_for [:admin, @article, @section] do |f| %>
+	<%= render partial: 'form', locals: {f: f} %>
+<% end %>

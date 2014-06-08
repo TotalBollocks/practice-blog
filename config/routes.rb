@@ -5,7 +5,9 @@ PracticeBlog::Application.routes.draw do
 
   namespace :admin do
     resources :subjects, except: [:show, :index]
-    resources :articles, except: [:show, :index]
+    resources :articles, except: [:show, :index] do
+      resources :sections, except: [:show, :index]
+    end
   end
 
   # The priority is based upon order of creation: first created -> highest priority.
