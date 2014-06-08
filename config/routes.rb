@@ -1,5 +1,5 @@
 PracticeBlog::Application.routes.draw do
-  root to: 'subjects#index'
+  root to: 'welcome#index'
   resources :subjects, only: :show
   resources :articles, only: :show
 
