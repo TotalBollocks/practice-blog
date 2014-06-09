@@ -12,7 +12,7 @@ describe Article do
   	article.errors[:subject].should include("can't be blank")
   end
 
-  it "can add a section", focus: true do
+  it "can add a section" do
     subject = Subject.create! name: "Test Subject"
   	article = Article.create! title: "TEST!", subject: subject
   	section = Section.create! content: "test", article: article
