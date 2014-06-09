@@ -16,7 +16,7 @@ SUBJECTS.each do |subject|
 	s = Subject.find_or_create_by(name: subject) 
 
 	[1,2,3].each do |n|
-		a = Article.create! title: "#{s.id}-Article#{n}", subject: s
+    a = Article.create! title: "#{s.name}-Article#{n}", subject: s
 
 		[1,2,3].each do |j|
 			Section.create! content: "Lorem doller set ipsum blah blah blah"*40, article: a
