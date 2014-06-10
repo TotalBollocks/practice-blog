@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Section, focus: true do
+describe Section do
   it "has valid factory" do
   	section = FactoryGirl.build :section
   	section.should be_valid
