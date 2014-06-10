@@ -1,15 +1,15 @@
 <table>
 	<tr>
-		<th>Name</th>
+		<th>Subject Name</th>
 		<th>Actions</th>
 	</tr>
 	<% @subjects.each do |subject| %>
 		<tr>
 			<td><%= subject.name %></td>
 			<td>
-				<%= link_to "Edit", [:edit, :admin, subject] %>
-				<%= link_to "Articles", [:admin, subject] %>
-        <%= link_to "Destroy", [:admin, subject], confirm: "Are you sure?", method: :delete %>
+        <%= link_to "Rename", [:edit, :admin, subject] %>
+        <%= link_to "Manage Articles", [:admin, subject] %>
+        <%= link_to "Delete", [:admin, subject], confirm: "Are you sure?", method: :delete %>
 			</td>
 		</tr>
 	<% end %>
