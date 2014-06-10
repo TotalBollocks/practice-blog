@@ -7,4 +7,6 @@
 <%= f.label :subject %> <br>
 <%= f.select :subject_id, Subject.all.map { |s| [s.name, s.id] } %> <br> <br>
 
+<%= f.hidden_field :user_id, value: current_user.id %>
+
 <%= f.submit %>

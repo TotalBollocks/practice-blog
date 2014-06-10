@@ -8,6 +8,11 @@ describe Admin::BaseController do
     end
   end
   
+  it "Rejects if not signed in" do
+    get "index"
+    response.should redirect_to root_path
+  end
+  
   it "Rejects an anonymous user" do
     user = FactoryGirl.create :user
     session[:user_id] =  user.id
