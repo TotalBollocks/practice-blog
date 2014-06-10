@@ -9,6 +9,7 @@
 			<td>
 				<%= link_to "Edit", [:edit, :admin, subject] %>
 				<%= link_to "Articles", [:admin, subject] %>
+        <%= link_to "Destroy", [:admin, subject], confirm: "Are you sure?", method: :delete %>
 			</td>
 		</tr>
 	<% end %>
