@@ -6,8 +6,8 @@
 	<% @subject.articles.each do |article| %>
 		<tr>
 			<td><%= article.title %></td>
-			<td><%= link_to "Edit", [:edit, :admin, article] %></td>
-			<td><%= link_to "Sections", [:admin, article] %></td>
+			<td><%= link_to "Edit Info", [:edit, :admin, article] %></td>
+      <td><%= link_to "Edit sections", [:admin, article] %></td>
 		</tr>
 	<% end %>
 </table>
