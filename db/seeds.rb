@@ -23,3 +23,14 @@ SUBJECTS.each do |subject|
 		end
 	end
 end
+
+User.find_or_create_by(email: "admin123@example.com") do |a|
+  a.admin= true
+  a.password = "secret"
+  a.password_confirmation = "secret"
+end
+
+User.find_or_create_by(email: "anon123@example.com") do |a|
+  a.password = "secret"
+  a.password_confirmation = "secret"
+end
