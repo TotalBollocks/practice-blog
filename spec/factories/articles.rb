@@ -6,5 +6,6 @@ FactoryGirl.define do
   	summary "A summary of the article"
 
   	subject
+    user
   end
 end

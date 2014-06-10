@@ -3,5 +3,5 @@ class Article < ActiveRecord::Base
   belongs_to :user
 	has_many :sections
 
-	validates :title, :subject, presence: true
+  validates :title, :subject, :user, presence: true
 end

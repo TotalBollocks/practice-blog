@@ -11,11 +11,16 @@ describe Article do
   	article.should_not be_valid
   	article.errors[:subject].should include("can't be blank")
   end
+  
+  it "requires a user" do
+    article = FactoryGirl.build :article, user: nil
+    article.should_not be_valid
+    article.errors[:user].should include "can't be blank"
+  end
 
   it "can add a section" do
-    subject = Subject.create! name: "Test Subject"
-  	article = Article.create! title: "TEST!", subject: subject
-  	section = Section.create! content: "test", article: article
+    article = FactoryGirl.create :article
+    section = FactoryGirl.create :section, article: article
   	article.sections.should include section
   end
 end
