@@ -18,7 +18,7 @@
     <% else %>
       <%= link_to "Sign in", sign_in_path %>
     <% end %>
-    <%= link_to("Edit Subjects", admin_subjects_path) if current_user.try(:admin) %>
+    <%= link_to("Admin area", admin_subjects_path) if current_user.try(:admin) %>
 
 	</div>
 
