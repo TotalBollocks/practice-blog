@@ -1,8 +1,10 @@
 <table>
-	<tr>
-		<th>Article</th>
-		<th>Action</th>
-	</tr>
+  <thead>
+    <tr>
+      <th>Article</th>
+      <th colspan="2">Action</th>
+    </tr>
+  </thead>
 	<% @subject.articles.each do |article| %>
 		<tr>
 			<td><%= article.title %></td>

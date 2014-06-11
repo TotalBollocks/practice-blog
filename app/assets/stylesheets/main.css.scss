@@ -61,4 +61,13 @@ h1, h2, h3, h4, h5, h6 {
 	width: 760px;
 	background: $content-blue;
 	padding: 10px 20px;
+}  
+
+table {
+  border-collapse: collapse;
+}
+
+td, th {
+  border: 1px black solid;
+  padding: 8px;
 }
