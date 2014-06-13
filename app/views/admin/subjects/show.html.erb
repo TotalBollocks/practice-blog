@@ -1,17 +1,23 @@
-<table>
-  <thead>
-    <tr>
-      <th>Article</th>
-      <th colspan="2">Action</th>
-    </tr>
-  </thead>
-	<% @subject.articles.each do |article| %>
-		<tr>
-			<td><%= article.title %></td>
-			<td><%= link_to "Edit Info", [:edit, :admin, article] %></td>
-      <td><%= link_to "Edit sections", [:admin, article] %></td>
-		</tr>
-	<% end %>
-</table>
+<div class="row">
+  <div class="col-sm-6 col-sm-offset-3">
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>Article</th>
+          <th colspan="2">Action</th>
+        </tr>
+      </thead>
+      <% @subject.articles.each do |article| %>
+        <tr>
+          <td><%= article.title %></td>
+          <td><%= link_to "Edit Info", [:edit, :admin, article] %></td>
+          <td><%= link_to "Edit sections", [:admin, article] %></td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
 
-<%= link_to "Add new article", [:new, :admin, :article] %>
+<div class="row">
+  <%= link_to "Add new article", [:new, :admin, :article], class: "col-sm-2 col-sm-offset-3 btn btn-default" %>
+</div>

@@ -1,5 +1,13 @@
-<%= render partial: 'shared/errors', locals: {object: @subject} %>
+<div class="row">
+  <div class="col-sm-6 col-sm-offset-3">
+    <%= render partial: 'shared/errors', locals: {object: @subject} %>
+  </div>
+</div>
 
-<%= form_for [:admin, @subject] do |f| %>
-	<%= render partial: 'form', locals: {f: f} %>
-<% end %>
+<div class="row">
+  <div class="col-sm-6 col-sm-offset-3">
+    <%= form_for [:admin, @subject] do |f| %>
+      <%= render partial: 'form', locals: {f: f} %>
+    <% end %>
+  </div>
+</div>

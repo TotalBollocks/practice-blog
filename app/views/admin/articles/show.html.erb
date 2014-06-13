@@ -1,4 +1,4 @@
-<table>
+<table class="table">
   <thead>
     <tr>
       <th>Section</th>
@@ -9,7 +9,7 @@
 	<% @article.sections.each do |section| %>
 		<tr>
 			<td><%= section.content %></td>
-			<td><%= link_to "Edit", [:edit, :admin, @article, section] %></td>
+      <td><%= link_to "Edit", [:edit, :admin, @article, section], class: "btn btn-default" %></td>
 		</tr>
 	<% end %>
 </table>

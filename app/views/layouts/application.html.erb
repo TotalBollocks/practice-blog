@@ -1,46 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+  
 <head>
-  <title>PracticeBlog</title>
+  <title>Practice Blog</title>
   <%= stylesheet_link_tag    "application", media: "all" %>
   <%= javascript_include_tag "application" %>
-  <%#= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
 </head>
+  
 <body>
-
-<div id="main" class="cf">
-
-	<div id="header">
-		<h1>Practice Blogger App</h1>
-    <%= link_to "Sign up", sign_up_path %>
-    <% if current_user %>
-      <%= link_to "Sign out", sign_out_path %>
-    <% else %>
-      <%= link_to "Sign in", sign_in_path %>
-    <% end %>
-    <%= link_to("Admin area", admin_subjects_path) if current_user.try(:admin) %>
-
-	</div>
-
-	<section id="sidebar">
-		<ul>
-			<% @subjects.each do |subject| %>
-			<li>
-				<%= link_to subject.name, subject_path(subject) %>
-			</li>
-			<% end %>
-		</ul>
-	</section>
-
-	<section id="content">
-    <% flash.each do |name, msg| %>
-      <%= content_tag :div, msg, id: name %>  
-    <% end %>
+  
+  <%= render 'layouts/navbar' %>
+	
+  <div class="container">
     
-		<%= yield %>
-	</section>
+    <div class="row">
+      <% flash.each do |name, msg| %>
+        <div class="col-sm-4 alert alert-<%= name == :notice ? "success" : "danger" %>">
+          <a class="close" data-dismiss="alert">×</a>
+          <%= msg %> 
+        </div>
+      <% end %>
+    </div>
 
-</div> <%# end main %>
+    <%= yield %>
+    
+  </div>
+
 </body>
+  
 </html>

@@ -1,6 +1,6 @@
-<h2><%= @article.title %></h2>
-<h6>Author: <%= @article.user.email %></h6>
+  <h2><%= @article.title %></h2>
+  <h6>Author: <%= @article.user.email %></h6>
 
-<% @article.sections.each do |section| %>
-	<p><%= section.content %></p>
-<% end %>
+  <% @article.sections.each do |section| %>
+    <p><%= section.content %></p>
+  <% end %>

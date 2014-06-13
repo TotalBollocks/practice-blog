@@ -1,12 +1,18 @@
-<%= f.label :title %> <br>
-<%= f.text_field :title %> <br> <br>
+<div class="form-group">
+  <%= f.label :title %> 
+  <%= f.text_field :title, class: "form-control" %>  
+</div>
 
-<%= f.label :summary %> <br>
-<%= f.text_area :summary %> <br> <br>
+<div class="form-group">
+  <%= f.label :summary %> 
+  <%= f.text_area :summary, class: "form-control" %>  
+</div>
 
-<%= f.label :subject %> <br>
-<%= f.select :subject_id, Subject.all.map { |s| [s.name, s.id] } %> <br> <br>
+<div class="form-group">
+  <%= f.label :subject %> 
+  <%= f.select :subject_id, Subject.all.map { |s| [s.name, s.id] }, class: "form-control" %>  
+</div>
 
 <%= f.hidden_field :user_id, value: current_user.id %>
 
-<%= f.submit %>
+<%= f.submit class: "btn btn-default" %>
