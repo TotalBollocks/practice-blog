@@ -1,10 +1,6 @@
 class SubjectsController < ApplicationController
 
-	def index
-
-	end
-
-	def show
+  def show
 		@subject = Subject.find(params[:id])
 	end
 
