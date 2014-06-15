@@ -7,7 +7,7 @@ RSpec::Matchers.define :have_error do |error, message|
 end
 
 
-describe User, focus: true do
+describe User do
   it "has valid factory" do
     user = FactoryGirl.build :user
     user.should be_valid

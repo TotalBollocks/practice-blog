@@ -12,12 +12,14 @@ Article.delete_all
 Section.delete_all
 
 author = User.find_or_create_by(email: "admin123@example.com") do |a|
-  a.admin= true
+  a.admin = true
+  a.username = 'admin'
   a.password = "secret"
   a.password_confirmation = "secret"
 end
 
 User.find_or_create_by(email: "anon123@example.com") do |a|
+  a.username = 'anon'
   a.password = "secret"
   a.password_confirmation = "secret"
 end

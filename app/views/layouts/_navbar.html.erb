@@ -17,6 +17,7 @@
         <li>
           <% if current_user %>
           <%= link_to "Sign out", sign_out_path %>
+          <%= link_to "My Profile", edit_user_path(current_user) %>
           <% else %>
           <%= link_to "Sign in", sign_in_path %>
           <% end %>
