@@ -15,6 +15,7 @@ describe Permission do
     it { should permit("articles", "show") }
     it { should permit("users", "new") }
     it { should permit("users", "create") }
+    it { should permit("users", "create") }
     it { should permit("sessions", "new") }
     it { should permit("sessions", "create") }
     it { should permit("sessions", "destroy") }
