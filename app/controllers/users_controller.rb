@@ -16,11 +16,11 @@ class UsersController < ApplicationController
   end
   
   def edit
-    @user = User.find(params[:id])
+    @user = current_resource
   end
   
   def update
-    @user = User.find(params[:id])    
+    @user = current_resource    
     
     if @user.update(user_params)
       flash[:notice] = "Profile updated!"
@@ -31,6 +31,10 @@ class UsersController < ApplicationController
   end
   
   private
+  
+  def current_resource
+    @current_resource ||= User.find(params[:id]) if params[:id]
+  end
   
   def user_params
     params.require(:user).permit(:email, :password, :password_confirmation, :username)

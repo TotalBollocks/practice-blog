@@ -1,7 +1,8 @@
 require 'spec_helper'
 
-describe "users" do
+describe "users", focus: true do
   let(:user) { FactoryGirl.create :user }
+  let(:other_user) { FactoryGirl.create :user }
   
   specify "can create a user" do
     visit root_path
@@ -31,5 +32,11 @@ describe "users" do
     user.reload
     user.username.should eq "NewName"
     page.should have_content "Profile updated"
+  end
+  
+  specify "can't edit anothers profile" do
+    sign_in user
+    visit edit_user_path(other_user)
+    current_url.should_not eq edit_user_url(other_user)
   end
 end
