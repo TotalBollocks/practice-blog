@@ -6,4 +6,9 @@ class User < ActiveRecord::Base
   
   validates :email, presence: true, uniqueness: { message: "has been taken" }
   validates :username, presence: true
+  
+  def has_role?(name)
+    role = Role.where(name: name).take
+    self.roles.include?(role)
+  end
 end

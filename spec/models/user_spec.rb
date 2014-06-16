@@ -1,6 +1,8 @@
 require 'spec_helper'
 
 describe User do
+  let(:user) { FactoryGirl.create :user }
+  
   it "has valid factory" do
     user = FactoryGirl.build :user
     user.should be_valid
@@ -34,5 +36,16 @@ describe User do
     role = FactoryGirl.create :role
     user.roles << role
     user.roles.should include role
+  end
+  
+  describe ".has_role?" do
+    it "true when user has role" do
+      user.roles << FactoryGirl.create(:role, name: "Role")
+      user.should have_role "Role"
+    end
+    
+    it "false when user doesnt have role" do
+      user.should_not have_role "Admin"
+    end
   end
 end
