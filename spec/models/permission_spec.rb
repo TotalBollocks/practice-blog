@@ -8,6 +8,8 @@ RSpec::Matchers.define :permit do |*args|
 end
 
 describe Permission, focus: true do
+  let(:user) { FactoryGirl.create :user }
+  
   describe "base permissions" do
     subject { Permission.new nil }
     it { should permit("welcome", "index") }
@@ -18,12 +20,11 @@ describe Permission, focus: true do
     it { should permit("sessions", "new") }
     it { should permit("sessions", "create") }
     it { should permit("sessions", "destroy") }
-    
+        
     it { should_not permit("anything", "else") }
   end
   
   describe "user permissions" do
-    let(:user) { FactoryGirl.create :user }
     let(:other_user) { FactoryGirl.create :user, email: "dif@dif.com", username: "Diffy" }
     subject { Permission.new(user) }
     
@@ -33,6 +34,25 @@ describe Permission, focus: true do
     it { should_not permit "users", "update", other_user }
     it { should permit "users", "edit", user }
     it { should permit "users", "update", user }
+  end
+  
+  context "as author" do
+    let(:author) { FactoryGirl.build :role, name: "Author" }
+    let(:user_article) { FactoryGirl.create :article, user: user }
+    let(:other_article) { FactoryGirl.create :article }
+    subject { Permission.new(user) }
+    before do
+      user.roles << author
+    end
+    
+    it { should permit "articles", "new" }
+    it { should permit "articles", "create" }
+    it { should permit "articles", "edit", user_article }
+    it { should permit "articles", "update", user_article }
+    it { should permit "articles", "destroy", user_article }
+    it { should_not permit "articles", "edit", other_article }
+    it { should_not permit "articles", "update", other_article }
+    it { should_not permit "articles", "destroy", other_article }
   end
   
   context "as admin" do

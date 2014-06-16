@@ -10,6 +10,13 @@ class Permission
       user.id == user_pro.id
     end
     
+    if user && user.has_role?("Author")
+      permit :articles, [:new, :create]
+      permit :articles, [:edit, :update, :destroy] do |article|
+        article.user == user
+      end
+    end
+    
     permit_all if user.try(:admin)
   end
   
