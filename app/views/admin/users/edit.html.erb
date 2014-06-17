@@ -1,0 +1,12 @@
+<%= form_for @user do |f| %>
+
+  <div class="form-group">
+    <% Role.all.each do |role| %>
+      <%= check_box_tag "user[role_ids][]", role.id, @user.roles.include?(role), id: dom_id(role)  %>
+      <%= role.name %>
+    <% end %>
+  </div>
+
+  <%= f.submit class: "btn btn-default" %>  
+
+<% end %>

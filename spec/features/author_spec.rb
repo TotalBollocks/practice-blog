@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe "authors", focus: true do
+describe "authors" do
   let(:author) { FactoryGirl.create :user }
   let(:user) { FactoryGirl.create :user }
   let(:role) { FactoryGirl.create :role, name: "Author" }
