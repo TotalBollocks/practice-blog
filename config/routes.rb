@@ -1,7 +1,7 @@
 PracticeBlog::Application.routes.draw do
   root to: 'welcome#index'
   resources :subjects, only: :show
-  resources :articles, only: :show
+  resources :articles, except: :index
 
   namespace :admin do
     resources :subjects

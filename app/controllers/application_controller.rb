@@ -6,6 +6,8 @@ class ApplicationController < ActionController::Base
   before_action :set_subjects
   before_action :authorize
 
+  delegate :permit?, to: :current_permission
+  helper_method :permit?
   
   private
   helper_method :current_user
@@ -31,4 +33,10 @@ class ApplicationController < ActionController::Base
       redirect_to root_url
     end
   end
+  
+  def author?
+    current_user && current_user.has_role?("Author")
+  end
+  
+  helper_method :author?
 end
