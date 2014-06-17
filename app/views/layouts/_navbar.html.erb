@@ -14,16 +14,14 @@
       <ul class="nav navbar-nav">
  
         <li><%= link_to "Sign up", sign_up_path %></li>
-        <li>
-          <% if current_user %>
-          <%= link_to "Sign out", sign_out_path %>
-          <%= link_to "My Profile", edit_user_path(current_user) %>
-          <% else %>
-          <%= link_to "Sign in", sign_in_path %>
-          <% end %>
-        </li>
+        <% if current_user %>
+          <li><%= link_to "Sign out", sign_out_path %></li>
+          <li><%= link_to "My Profile", edit_user_path(current_user) %></li>
+        <% else %>
+          <li><%= link_to "Sign in", sign_in_path %></li>
+        <% end %>
         <% if author? %>
-          <%= link_to "Write Article", new_article_path %>
+          <li><%= link_to "Write Article", new_article_path %></li>
         <% end %>
         <% if current_user.try(:admin) %>
           <li><%= link_to("Admin area", admin_subjects_path) %></li>
