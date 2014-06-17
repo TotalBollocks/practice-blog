@@ -30,4 +30,10 @@ describe "authors", focus: true do
     click_button "Update Article"
     page.should have_content "Changed"
   end
+  
+  specify "can't edit another's article" do
+    FactoryGirl.create :article, user: FactoryGirl.create(:user), subject: subject
+    click_link subject.name
+    page.should_not have_css "a", text: "Edit"
+  end
 end
