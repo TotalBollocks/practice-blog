@@ -22,7 +22,7 @@ class Admin::UsersController < Admin::BaseController
   private
   
   def user_params
-    params.require(:user).permit(:role_ids => [])
+    params[:user].permit(:role_ids => [])
   end
   
 end

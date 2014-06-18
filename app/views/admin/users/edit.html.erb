@@ -1,6 +1,7 @@
-<%= form_for @user do |f| %>
+<%= form_for [:admin, @user] do |f| %>
 
   <div class="form-group">
+    <%= hidden_field_tag "user[role_ids][]", nil %>
     <% Role.all.each do |role| %>
       <%= check_box_tag "user[role_ids][]", role.id, @user.roles.include?(role), id: dom_id(role)  %>
       <%= role.name %>
