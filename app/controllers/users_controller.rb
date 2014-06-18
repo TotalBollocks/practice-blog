@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :find_user, only: [:edit, :update]
   
   def new
     @user = User.new
@@ -16,11 +17,9 @@ class UsersController < ApplicationController
   end
   
   def edit
-    @user = current_resource
   end
   
   def update
-    @user = current_resource    
     
     if @user.update(user_params)
       flash[:notice] = "Profile updated!"
@@ -31,9 +30,12 @@ class UsersController < ApplicationController
   end
   
   private
+  def find_user
+    @user = current_resource
+  end
   
   def current_resource
-    @current_resource ||= User.find(params[:id]) if params[:id]
+    @current_resource ||= User.find_by_slug!(params[:id]) if params[:id]
   end
   
   def user_params

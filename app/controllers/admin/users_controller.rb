@@ -1,15 +1,14 @@
 class Admin::UsersController < Admin::BaseController
+  before_action :find_user, only: [:edit, :update]
   
   def index
     @users = User.all
   end
   
   def edit
-    @user = User.find(params[:id])
   end
   
   def update
-    @user = User.find(params[:id])
     
     if @user.update(user_params)
       flash[:notice] = "User has been updated"
@@ -23,6 +22,10 @@ class Admin::UsersController < Admin::BaseController
   
   def user_params
     params[:user].permit(:role_ids => [])
+  end
+  
+  def find_user
+    @user = User.find_by_slug!(params[:id])
   end
   
 end
