@@ -13,6 +13,15 @@
   <%= f.select :subject_id, Subject.all.map { |s| [s.name, s.id] }, class: "form-control" %>  
 </div>
 
+<%= f.fields_for :sections do |b| %>
+  <div class="form-group">
+    <%= b.label :content %>
+    <%= b.text_area :content, class: 'form-control' %>
+    <%= b.check_box :_destroy, class: 'form-control' %>
+    <%= b.label :_destroy, "Remove Section" %>
+  </div>
+<% end %>
+
 <%= f.hidden_field :user_id, value: current_user.id %>
 
 <%= f.submit class: "btn btn-default" %>

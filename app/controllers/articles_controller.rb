@@ -37,7 +37,7 @@ class ArticlesController < ApplicationController
   private
     
     def article_params
-      params.require(:article).permit(:title, :summary, :subject_id, :user_id)
+      params.require(:article).permit(:title, :summary, :subject_id, :user_id, sections_attributes: [:id, :article_id, :content, :_destroy])
     end
   
   def current_resource

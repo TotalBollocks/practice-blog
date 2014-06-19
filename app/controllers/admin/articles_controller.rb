@@ -28,7 +28,7 @@ class Admin::ArticlesController < Admin::BaseController
 
 		if @article.update(article_params)
 			flash[:notice] = "You have updated the article"
-			redirect_to root_path
+      redirect_to @article
 		else
 			render 'edit'
 		end
@@ -44,7 +44,7 @@ class Admin::ArticlesController < Admin::BaseController
 	private
 
 	def article_params
-    params.require(:article).permit(:title, :summary, :subject_id, :user_id)
+    params.require(:article).permit(:title, :summary, :subject_id, :user_id, sections_attributes: [:id, :article_id, :content, :_destroy])
 	end
 
 end
